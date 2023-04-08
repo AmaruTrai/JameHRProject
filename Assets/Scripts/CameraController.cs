@@ -4,15 +4,15 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	[SerializeField]
-	[Description("Цель за которой следует камера")]
+	[Tooltip("Цель за которой следует камера")]
 	private Transform Target;
 
 	[SerializeField]
-	[Description("Граница слева достигая которой, камера перестает двигаться.")]
+	[Tooltip("Граница слева достигая которой, камера перестает двигаться.")]
 	private Transform LeftBorder;
 
 	[SerializeField]
-	[Description("Граница справа достигая которой, камера перестает двигаться.")]
+	[Tooltip("Граница справа достигая которой, камера перестает двигаться.")]
 	private Transform RightBorder;
 
 	private void Update()

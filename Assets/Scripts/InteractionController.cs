@@ -5,7 +5,10 @@ using UnityEngine;
 /// </summary>
 public class InteractionController : MonoBehaviour
 {
-	public bool IsInteractionAvailable = false;
+	public bool IsInteractionAvailable { get; private set; }
+
+	[SerializeField]
+	private GameObject tip;
 
 	private ConversationWrapper conversation;
 
@@ -21,6 +24,7 @@ public class InteractionController : MonoBehaviour
 			Input.GetKeyDown(KeyCode.E)
 		) {
 			conversation.ShowConversation();
+			HideInteractionTip();
 		}
 	}
 
@@ -40,11 +44,15 @@ public class InteractionController : MonoBehaviour
 
 	private void ShowInteractionTip()
 	{
+		if (conversation == null || !conversation.ShouldShow()) {
+			return;
+		}
 
+		tip.SetActive(true);
 	}
 
 	private void HideInteractionTip()
 	{
-
+		tip.SetActive(false);
 	}
 }
