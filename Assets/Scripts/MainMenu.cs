@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour{
 
     public GameObject credits;
+    public GameObject pousemenu;
+
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            pousemenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -21,6 +32,7 @@ public class MainMenu : MonoBehaviour{
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void EnterCredits() 
@@ -31,6 +43,12 @@ public class MainMenu : MonoBehaviour{
     public void LeaveCredits() 
     {
         credits.SetActive(false);
+    }
+
+    public void LeavePouseMenu() 
+    {
+        pousemenu.SetActive(false);
+        Time.timeScale = 1f;
     }
  }
 
