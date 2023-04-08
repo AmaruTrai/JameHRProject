@@ -7,7 +7,13 @@ public class MainMenu : MonoBehaviour{
     public GameObject credits;
     public GameObject pousemenu;
 
+    [SerializeField] Timer tm;
 
+    public GameObject timer;
+    private void Start()
+    {
+        tm = FindObjectOfType<Timer>();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
@@ -49,6 +55,12 @@ public class MainMenu : MonoBehaviour{
     {
         pousemenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void ContinueCLOCKGame() 
+    {
+        timer.SetActive(true);
+        tm.ContinueClock();
     }
  }
 
