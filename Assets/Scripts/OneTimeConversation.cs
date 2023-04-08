@@ -1,3 +1,6 @@
+/// <summary>
+/// Диалог который должен быть показан только один раз.
+/// </summary>
 public class OneTimeConversation : ConversationWrapper
 {
 	private bool IsShowed = false;

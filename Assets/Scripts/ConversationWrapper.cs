@@ -1,6 +1,10 @@
 using DialogueEditor;
 using UnityEngine;
 
+/// <summary>
+/// Обертка над NPCConversation из плагина на диалоги.
+/// Нужна чтобы добавлять кастомную логику на события вызова диалога.
+/// </summary>
 public class ConversationWrapper : MonoBehaviour
 {
 	[SerializeField]

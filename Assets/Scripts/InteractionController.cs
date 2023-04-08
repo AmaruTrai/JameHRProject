@@ -1,15 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Контроллер для обработки взаимодействия с окружающими обьектами.
+/// </summary>
 public class InteractionController : MonoBehaviour
 {
-	public bool IsInteractionAvailable;
+	public bool IsInteractionAvailable = false;
 
 	private ConversationWrapper conversation;
-
-	private void Awake()
-	{
-		IsInteractionAvailable = false;
-	}
 
 	private void Update()
 	{
