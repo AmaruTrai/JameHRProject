@@ -10,10 +10,10 @@ public class ConversationWrapper : MonoBehaviour
 	[SerializeField]
 	private NPCConversation conversation;
 
-	[SerializeField] Timer tm;
+	[SerializeField] MainMenu tm;
 	private void Start()
 	{
-		tm = FindObjectOfType<Timer>();
+		tm = FindObjectOfType<MainMenu>();
 	}
 	public virtual void ShowConversation()
 	{

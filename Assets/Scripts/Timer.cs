@@ -16,20 +16,20 @@ public class Timer : MonoBehaviour
 
     public Text timertext;
 
-    public GameObject stoptext;
+    //public GameObject stoptext;
     public GameObject loosepanel;
 
-    public bool StopedClock;
+    //public bool StopedClock;
 
-    public bool stoponlyonce;
+    //public bool stoponlyonce;
 
     private void Start()
     {
         timertext = GetComponent<Text>();
         totaltime = 1800f;
         Time.timeScale = 1f;
-        StopedClock = false;
-        stoponlyonce = true;
+        //StopedClock = false;
+        //stoponlyonce = true;
     }
     private void Update()
     {
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    if(StopedClock == true && stoponlyonce == true) 
+    /*if(StopedClock == true && stoponlyonce == true) 
     {
         stoptext.SetActive(false);
         stoponlyonce = false;
@@ -55,6 +55,7 @@ public class Timer : MonoBehaviour
         stoponlyonce = true;
         StopedClock = false;
     }
+    */
     }
 
     public float GetHour() 
@@ -73,7 +74,7 @@ public class Timer : MonoBehaviour
         return Mathf.FloorToInt(GetHour()).ToString("00") + ":" + Mathf.FloorToInt(GetMinutes()).ToString("00");
     }
 
-    public void StopClock() 
+    /*public void StopClock() 
     {
         StopedClock = true;
     }
@@ -82,4 +83,5 @@ public class Timer : MonoBehaviour
     {
         StopedClock = false;
     }
+    */
 }

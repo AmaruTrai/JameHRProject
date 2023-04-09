@@ -6,13 +6,21 @@ public class MainMenu : MonoBehaviour{
 
     public GameObject credits;
     public GameObject pousemenu;
+    
+    public GameObject stoptext;
 
+    public bool StopedClock;
+
+    public bool stoponlyonce;
     [SerializeField] Timer tm;
 
     public GameObject timer;
     private void Start()
     {
         tm = FindObjectOfType<Timer>();
+
+        StopedClock = false;
+        stoponlyonce = true;
     }
     private void Update()
     {
@@ -21,6 +29,29 @@ public class MainMenu : MonoBehaviour{
             pousemenu.SetActive(true);
             Time.timeScale = 0f;
         }
+
+        if(StopedClock == true && stoponlyonce == true) 
+    {
+        stoptext.SetActive(false);
+    }
+    if(StopedClock == true && stoponlyonce == false) 
+    {
+        stoptext.SetActive(true);
+        stoponlyonce = true;
+        StopedClock = false;
+    }
+    }
+
+    public void StopClock() 
+    {
+        StopedClock = true;
+        stoponlyonce = true;
+    }
+
+    public void ContinueClock() 
+    {
+        StopedClock = true;
+        stoponlyonce = false;
     }
     public void PlayGame()
     {
@@ -60,7 +91,7 @@ public class MainMenu : MonoBehaviour{
     public void ContinueCLOCKGame() 
     {
         timer.SetActive(true);
-        tm.ContinueClock();
+        ContinueClock();
     }
  }
 
