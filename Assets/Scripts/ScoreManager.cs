@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
 		OnScoreChanged?.Invoke(inscrease);
 
 		if (score == 0) {
-			timer.EndGame();
+			GameManager.Instance.EndGame();
 		}
 	}
 

@@ -23,17 +23,10 @@ public class Timer : MonoBehaviour
 	[Tooltip("Время конца игры")]
 	private UDateTime endTime;
 
-	[SerializeField]
-	private GameObject pausePanel;
-
-	[SerializeField]
-	private GameObject loosePanel;
-
 	private DateTime currentTime;
 	private Text timerText;
 
 	public bool IsTimeStopped { get; private set; }
-	public bool stopOnlyOnce;
 
 	private void Awake()
 	{
@@ -41,7 +34,6 @@ public class Timer : MonoBehaviour
 		timerText = GetComponent<Text>();
 		timerText.text = currentTime.ToString("HH:mm");
 		IsTimeStopped = false;
-		stopOnlyOnce = true;
 	}
 
 	private void Update()
@@ -56,7 +48,7 @@ public class Timer : MonoBehaviour
 		timerText.text = currentTime.ToString("HH:mm");
 
 		if ((endTime - currentTime).TotalMilliseconds <= 0) {
-			EndGame();
+			GameManager.Instance.EndGame();
 		}
 	}
 
@@ -70,20 +62,11 @@ public class Timer : MonoBehaviour
 	public void StopTime()
 	{
 		IsTimeStopped = true;
-		pausePanel.SetActive(true);
-	}
-
-	public void EndGame()
-	{
-		loosePanel.SetActive(true);
-		IsTimeStopped = true;
-		Time.timeScale = 0f;
 	}
 
 	public void ContinueTime()
 	{
 		IsTimeStopped = false;
-		pausePanel.SetActive(false);
 	}
 
 	public void AddTime(float seconds)

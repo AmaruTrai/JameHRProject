@@ -4,11 +4,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour{
 
     public GameObject credits;
-    public GameObject pousemenu;
-    
-    public GameObject stoptext;
 
-    public bool StopedClock;
+	[SerializeField]
+	private GameObject pausePanel;
+
+	[SerializeField]
+	private GameObject loosePanel;
+
+	public bool StopedClock;
 
     public bool stoponlyonce;
     [SerializeField] Timer tm;
@@ -23,22 +26,16 @@ public class MainMenu : MonoBehaviour{
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            pousemenu.SetActive(true);
-            Time.timeScale = 0f;
-        }
-
         if(StopedClock == true && stoponlyonce == true) 
-    {
-        stoptext.SetActive(false);
-    }
-    if(StopedClock == true && stoponlyonce == false) 
-    {
-        stoptext.SetActive(true);
-        stoponlyonce = true;
-        StopedClock = false;
-    }
+		{
+			loosePanel.SetActive(false);
+		}
+		if(StopedClock == true && stoponlyonce == false) 
+		{
+			pausePanel.SetActive(true);
+			stoponlyonce = true;
+			StopedClock = false;
+		}
     }
 
     public void StopClock() 
@@ -83,14 +80,8 @@ public class MainMenu : MonoBehaviour{
 
     public void LeavePouseMenu() 
     {
-        pousemenu.SetActive(false);
+		pausePanel.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    public void ContinueCLOCKGame() 
-    {
-       timer.SetActive(true);
-       tm.ContinueTime();
     }
  }
 
