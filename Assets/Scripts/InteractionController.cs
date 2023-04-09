@@ -59,4 +59,9 @@ public class InteractionController : MonoBehaviour
 	{
 		tip.SetActive(false);
 	}
+
+	public void ShowConversation(ConversationWrapper conversation)
+	{
+		conversation.ShowConversation();
+	}
 }

@@ -38,5 +38,16 @@ public class Moneymanager : MonoBehaviour
         tm.AddTime(3600f);
     }
 
-    //Events that Increase/Decrease the amount of Money
+	public void AddMoney(int money)
+	{
+		this.money += money;
+	}
+
+	public void BuyFood()
+	{
+		if (money >= 100) {
+			money -= 100;
+			sb.IncreaseScore(100);
+		}
+	}
 }
