@@ -24,6 +24,7 @@ public class StatusBar : MonoBehaviour
 	private void UpdateStatusBar(int increase)
 	{
 		image.fillAmount = Mathf.Clamp((float)manager.Score / (float)maxScore, 0.05f, 1);
-		text.text = $"{manager.Score}";
+		//text.text = $"{manager.Score}";
+		text.text = "Hunger: " + manager.Score;
 	}
 }
