@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af15eec18b73e3b41bf3c925b0a281de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 1851162254}
   pausePanel: {fileID: 962946167}
   loosePanel: {fileID: 1855780557}
 --- !u!4 &839717352
