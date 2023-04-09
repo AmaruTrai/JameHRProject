@@ -71,6 +71,8 @@ public class Timer : MonoBehaviour
 
 	public void AddTime(float seconds)
 	{
-		currentTime.AddSeconds(seconds);
+		currentTime = currentTime.AddSeconds(seconds);
+		OnTimeUpdated?.Invoke(seconds);
+		timerText.text = currentTime.ToString("HH:mm");
 	}
 }
