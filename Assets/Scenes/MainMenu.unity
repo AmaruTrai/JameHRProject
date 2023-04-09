@@ -639,8 +639,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -151.85999}
-  m_SizeDelta: {x: -654.38, y: -407.18}
+  m_AnchoredPosition: {x: 0.0025024414, y: 0}
+  m_SizeDelta: {x: -0.0048828, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459037814
 MonoBehaviour:
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME NAME
+  m_text: ' WithoutMeaning'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2eb19a386cdc9cb1485fa63505bfd9da, type: 2}
   m_sharedMaterial: {fileID: -8932555244130589234, guid: 2eb19a386cdc9cb1485fa63505bfd9da, type: 2}
@@ -1593,7 +1593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -275.38}
+  m_AnchoredPosition: {x: -0.0024414, y: -478.96}
   m_SizeDelta: {x: 598.23, y: 122.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655517028
@@ -1911,8 +1911,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0024414, y: 51.050003}
-  m_SizeDelta: {x: 1265.6, y: 530.79}
+  m_AnchoredPosition: {x: -0.0012665, y: 61.036}
+  m_SizeDelta: {x: 1920, y: 957.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092075634
 MonoBehaviour:
@@ -1934,11 +1934,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer:
-
-    2d Artist:
-
-    etc'
+  m_text: "AmaruTrai - game developer\n\nGrin_Danilov - sound designer\n\nErnst Studio(ErnstGames)
+    - game developer\n\nMordragon - game-designer (system & narrative), writer, project
+    manager.\n\nDmitry Hodakov - 2D-artist\n\nShriGanapati - game-designer\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c04f010eca89d8a03baf0bb2492326e5, type: 2}
   m_sharedMaterial: {fileID: 5706426876919952482, guid: c04f010eca89d8a03baf0bb2492326e5, type: 2}
