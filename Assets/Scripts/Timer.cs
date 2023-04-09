@@ -1,11 +1,14 @@
 using DialogueEditor;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
 	public DateTime CurrentTime => currentTime;
+
+	public UnityEvent<float> OnTimeUpdated;
 
 	[SerializeField]
 	[Tooltip("Модификатор скорости времени")]
@@ -47,13 +50,13 @@ public class Timer : MonoBehaviour
 			return;
 		}
 
+		float deltaTime = Time.deltaTime * timeSpeed;
 		currentTime = currentTime.AddSeconds(Time.deltaTime * timeSpeed);
+		OnTimeUpdated?.Invoke(deltaTime);
 		timerText.text = currentTime.ToString("HH:mm");
 
 		if ((endTime - currentTime).TotalMilliseconds <= 0) {
-			loosePanel.SetActive(true);
-			IsTimeStopped = true;
-			Time.timeScale = 0f;
+			EndGame();
 		}
 	}
 
@@ -70,9 +73,21 @@ public class Timer : MonoBehaviour
 		pausePanel.SetActive(true);
 	}
 
+	public void EndGame()
+	{
+		loosePanel.SetActive(true);
+		IsTimeStopped = true;
+		Time.timeScale = 0f;
+	}
+
 	public void ContinueTime()
 	{
 		IsTimeStopped = false;
 		pausePanel.SetActive(false);
+	}
+
+	public void AddTime(float seconds)
+	{
+		currentTime.AddSeconds(seconds);
 	}
 }

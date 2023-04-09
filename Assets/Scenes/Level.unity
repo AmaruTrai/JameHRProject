@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c1ba61d315257438e641322754bdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScore: 5
+  maxScore: 10
   manager: {fileID: 875017884}
   text: {fileID: 1601735539}
 --- !u!1001 &490700481
@@ -1089,7 +1089,10 @@ MonoBehaviour:
   OnScoreChanged:
     m_PersistentCalls:
       m_Calls: []
-  score: 3
+  score: 10
+  timer: {fileID: 1851162254}
+  timePeriod: 180
+  scoreIncrease: -1
 --- !u!1 &939940549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3027,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640e1440410b7876481537c6c647b449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTimeUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   timeSpeed: 21
   startTime:
     _dateTime: 01.01.0001 8:00:00
@@ -4140,6 +4146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  timer: {fileID: 1851162254}
 --- !u!50 &2065579202
 Rigidbody2D:
   serializedVersion: 4
@@ -4200,6 +4207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 13872156}
+  timer: {fileID: 1851162254}
 --- !u!1 &2107512255
 GameObject:
   m_ObjectHideFlags: 0
