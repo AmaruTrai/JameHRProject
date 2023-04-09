@@ -84,4 +84,11 @@ public class Timer : MonoBehaviour
         StopedClock = false;
     }
     */
+
+    public void MinusTime() 
+    {
+        totaltime += 1000f;
+    }
+
+    //You can create other functions that will change the amount of time
 }
