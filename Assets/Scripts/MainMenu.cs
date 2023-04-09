@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour{
 
     public GameObject credits;
@@ -90,8 +89,8 @@ public class MainMenu : MonoBehaviour{
 
     public void ContinueCLOCKGame() 
     {
-        timer.SetActive(true);
-        ContinueClock();
+       timer.SetActive(true);
+       tm.ContinueTime();
     }
  }
 

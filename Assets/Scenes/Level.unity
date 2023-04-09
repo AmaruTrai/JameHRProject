@@ -3024,10 +3024,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640e1440410b7876481537c6c647b449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayduration: 4800
-  totaltime: 0
-  timertext: {fileID: 1851162252}
-  loosepanel: {fileID: 1855780557}
+  timeSpeed: 21
+  startTime:
+    _dateTime: 01.01.0001 8:00:00
+  endTime:
+    _dateTime: 01.01.0001 19:00:00
+  pausePanel: {fileID: 962946167}
+  loosePanel: {fileID: 1855780557}
+  stopOnlyOnce: 0
 --- !u!1 &1855780557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,7 +3499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: {fileID: 1924051684}
-  tm: {fileID: 0}
 --- !u!1 &1945626565
 GameObject:
   m_ObjectHideFlags: 0

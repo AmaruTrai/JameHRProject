@@ -7,6 +7,9 @@ public class CharacterMovement : MonoBehaviour
 	[Min(0.001f)]
 	private float movementSpeed = 5.0f;
 
+	[SerializeField]
+	private Timer timer;
+
 	private Rigidbody2D rb2D;
 	private InteractionController interactionController;
 	private Vector2 moveDirection;
@@ -30,7 +33,7 @@ public class CharacterMovement : MonoBehaviour
 
 	private void ControlUpdate()
 	{
-		if (ConversationManager.Instance.IsConversationActive) {
+		if (ConversationManager.Instance.IsConversationActive || timer.IsTimeStopped) {
 			moveDirection = Vector2.zero;
 			return;
 		}

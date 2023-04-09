@@ -1,94 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
+using DialogueEditor;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public const int hourinaday = 24;
-    public const int minutesinHour = 60;
+	public DateTime CurrentTime => currentTime;
 
-    public float dayduration = 4800f;
+	[SerializeField]
+	[Tooltip("Модификатор скорости времени")]
+	[Min(0f)]
+	private float timeSpeed = 1.0f;
 
-    [SerializeField] float totaltime = 0;
+	[SerializeField]
+	[Tooltip("Время начал игры")]
+	private UDateTime startTime;
 
-    float currentTime = 0;
+	[SerializeField]
+	[Tooltip("Время конца игры")]
+	private UDateTime endTime;
 
-    public Text timertext;
+	[SerializeField]
+	private GameObject pausePanel;
 
-    //public GameObject stoptext;
-    public GameObject loosepanel;
+	[SerializeField]
+	private GameObject loosePanel;
 
-    //public bool StopedClock;
+	private DateTime currentTime;
+	private Text timerText;
 
-    //public bool stoponlyonce;
+	public bool IsTimeStopped { get; private set; }
+	public bool stopOnlyOnce;
 
-    private void Start()
-    {
-        timertext = GetComponent<Text>();
-        totaltime = 1800f;
-        Time.timeScale = 1f;
-        //StopedClock = false;
-        //stoponlyonce = true;
-    }
-    private void Update()
-    {
-        totaltime += Time.deltaTime;
-        currentTime = totaltime % dayduration;
+	private void Awake()
+	{
+		currentTime = startTime.dateTime;
+		timerText = GetComponent<Text>();
+		timerText.text = currentTime.ToString("HH:mm");
+		IsTimeStopped = false;
+		stopOnlyOnce = true;
+	}
 
-        timertext.text = Clock24hour();
+	private void Update()
+	{
+		if (!ShouldUpdateTime()) {
+			return;
+		}
 
-    if(totaltime >= 3400f)
-    {
-        loosepanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
+		currentTime = currentTime.AddSeconds(Time.deltaTime * timeSpeed);
+		timerText.text = currentTime.ToString("HH:mm");
 
-    /*if(StopedClock == true && stoponlyonce == true) 
-    {
-        stoptext.SetActive(false);
-        stoponlyonce = false;
-    }
-    if(StopedClock == true && stoponlyonce == false) 
-    {
-        stoptext.SetActive(true);
-        stoponlyonce = true;
-        StopedClock = false;
-    }
-    */
-    }
+		if ((endTime - currentTime).TotalMilliseconds <= 0) {
+			loosePanel.SetActive(true);
+			IsTimeStopped = true;
+			Time.timeScale = 0f;
+		}
+	}
 
-    public float GetHour() 
-    {
-        return currentTime * hourinaday / dayduration;
+	private bool ShouldUpdateTime()
+	{
+		return
+			!ConversationManager.Instance.IsConversationActive &&
+			!IsTimeStopped;
+	}
 
-    }
+	public void StopTime()
+	{
+		IsTimeStopped = true;
+		pausePanel.SetActive(true);
+	}
 
-    public float GetMinutes() 
-    {
-        return (currentTime * hourinaday * minutesinHour / dayduration) % minutesinHour;
-    }
-
-    public string Clock24hour() 
-    {
-        return Mathf.FloorToInt(GetHour()).ToString("00") + ":" + Mathf.FloorToInt(GetMinutes()).ToString("00");
-    }
-
-    /*public void StopClock() 
-    {
-        StopedClock = true;
-    }
-
-    public void ContinueClock() 
-    {
-        StopedClock = false;
-    }
-    */
-
-    public void MinusTime() 
-    {
-        totaltime += 1000f;
-    }
-
-    //You can create other functions that will change the amount of time
+	public void ContinueTime()
+	{
+		IsTimeStopped = false;
+		pausePanel.SetActive(false);
+	}
 }

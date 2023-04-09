@@ -10,6 +10,9 @@ public class InteractionController : MonoBehaviour
 	[SerializeField]
 	private GameObject tip;
 
+	[SerializeField]
+	private Timer timer;
+
 	private ConversationWrapper conversation;
 
 	private void Update()
@@ -19,6 +22,7 @@ public class InteractionController : MonoBehaviour
 		}
 
 		if (
+			!timer.IsTimeStopped &&
 			conversation != null &&
 			conversation.ShouldShow() &&
 			Input.GetKeyDown(KeyCode.E)
