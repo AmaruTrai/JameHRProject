@@ -62,6 +62,8 @@ public class InteractionController : MonoBehaviour
 
 	public void ShowConversation(ConversationWrapper conversation)
 	{
-		conversation.ShowConversation();
+		if (conversation.ShouldShow() ) {
+			conversation.ShowConversation();
+		}
 	}
 }
