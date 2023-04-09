@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af15eec18b73e3b41bf3c925b0a281de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 1851162254}
   pausePanel: {fileID: 962946167}
   loosePanel: {fileID: 1855780557}
 --- !u!4 &839717352
@@ -3029,9 +3029,9 @@ MonoBehaviour:
       m_Calls: []
   timeSpeed: 21
   startTime:
-    _dateTime: 01.01.0001 8:00:00
+    _dateTime: 1/1/0001 8:00:00 AM
   endTime:
-    _dateTime: 01.01.0001 19:00:00
+    _dateTime: 1/1/0001 7:00:00 PM
 --- !u!1 &1855780557
 GameObject:
   m_ObjectHideFlags: 0
